@@ -1,1 +1,24 @@
 @import 'tailwindcss';
+
+@layer base{
+    h1,h2,h3,h4{
+        font-weight: bold;
+        margin: 1rem;
+    }
+
+    h1{
+        font-size: xx-large;
+    }
+
+    h2{
+        font-size: x-large;
+    }
+
+    h3{
+        font-size: larger;
+    }
+    
+    h4{
+        font-size: large;
+    }
+}

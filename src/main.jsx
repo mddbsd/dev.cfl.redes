@@ -7,6 +7,8 @@ import { RouterProvider } from 'react-router'
 import './css/general.css'
 //Componentes
 import Home from './componentes/home'
+import Cabecera from './componentes/cabecera'
+import Pie from './componentes/pie'
 
 const rutasDev = createBrowserRouter([
   {
@@ -17,6 +19,8 @@ const rutasDev = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <Cabecera />
     <RouterProvider router={rutasDev} />
+    <Pie />
   </StrictMode>,
 )
