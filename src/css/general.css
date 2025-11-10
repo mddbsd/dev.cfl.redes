@@ -17,8 +17,11 @@
     h3{
         font-size: larger;
     }
-    
+
     h4{
         font-size: large;
+    }
+    p{
+        margin: 1rem;
     }
 }
