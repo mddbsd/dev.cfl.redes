@@ -1,0 +1,11 @@
+@media (max-width: 1024px) {
+    .main-menu-slider {
+        transition: height 400ms ease; 
+        height: 0px;
+        overflow-y: hidden;
+    }
+
+    .main-menu-slider.expanded {
+        height: 190px;            
+    }
+}

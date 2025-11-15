@@ -1,0 +1,18 @@
+[
+    {
+        "marca": "ford",
+        "modelo": "mustang",
+        "color": "rojo"
+
+    },
+    {
+        "marca": "peugeot",
+        "modelo": "504",
+        "color": "amarillo"
+    },
+    {
+        "marca": "suzuki",
+        "modelo": "fun",
+        "color": "rojo"
+    }
+]
