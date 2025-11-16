@@ -1,11 +1,11 @@
-export default function Redes1(){
+export default function Redes3(){
     
     
     
     return(
         <>
             <div>
-                <h2>Protocolos y enlaces</h2>
+                <h2>Medios</h2>
             </div>
         </>
     )

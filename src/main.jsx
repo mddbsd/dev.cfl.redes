@@ -8,31 +8,39 @@ import './css/general.css'
 //Componentes
 import HeaderNav from './componentes/headernav'
 import Home from './componentes/home'
-import Cabecera from './componentes/cabecera'
 import Pie from './componentes/pie'
-import BarraNav from './componentes/barranav'
-import Calendario from './componentes/calendario'
-import Autos from './componentes/autos'
+import Redes1 from './componentes/redes1'
+import Redes2 from './componentes/redes2'
+import Redes3 from './componentes/redes3'
+import Redes4 from './componentes/redes4'
 
-const rutasDev = createBrowserRouter([
+const rutasRedes = createBrowserRouter([
   {
     path: "/",
     Component: Home
   },
   {
-    path: "/calendario",
-    Component: Calendario
+    path: "/dia1",
+    Component: Redes1
   },
   {
-    path: "/autos",
-    Component: Autos
+    path: "/dia2",
+    Component: Redes2
+  },
+    {
+    path: "/dia3",
+    Component: Redes3
+  },
+  {
+    path: "/dia4",
+    Component: Redes4
   }
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <HeaderNav />
-      <RouterProvider router={rutasDev} />
+    <RouterProvider router={rutasRedes} />
     <Pie />
   </StrictMode>,
 )

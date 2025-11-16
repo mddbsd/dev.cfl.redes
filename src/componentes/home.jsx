@@ -1,10 +1,10 @@
 export default function Home(){
     return(
-        <div className="p-4">
+        <>
             <div>
-                <h2>Vista principal</h2>
-                <p>Este es el componente Home, aca cargamos la pagina inicial</p>
+                <h2>Introducción a las redes domésticas</h2>
+                <p>Las redes informáticas estan presentes en todos casi todos los aspectos de nuestra vida cotidiana, las encontramos en todos los hogares con un servicio de internet, en la calle con los servicios móbiles y haste en algunos elevtrodomésticos (IoT).</p>
             </div>
-        </div>
+        </>
     )
 }
