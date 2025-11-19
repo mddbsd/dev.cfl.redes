@@ -1,0 +1,26 @@
+[
+    {
+        "key":"1",
+        "tipo":"UTP (Unshielded Twisted Pair)",
+        "img":"redes2-cable-utp.webp",
+        "desc":"UTP significa par trenzado no blindado. Es el tipo más común y básico de cable de par trenzado. El cable UTP contiene pares trenzados que ayudan a disminuir y prevenir las interferencias electromagnéticas. Como el cable UTP no tiene blndaje, ofrece muchas ventajas, como menor costo, fácil instalación y mantenimiento. Por ello, son una opción popular para redes pequeñas y medianas."
+    },
+    {
+        "key":"2",
+        "tipo":"STP (Shielded Twisted Pair)",
+        "img":"redes2-cable-stp.webp",
+        "desc":"STP significa par trenzado blindado. A diferencia de los cables UTP, los cables STP están cubiertos con un material de blindaje o apantallamiento que consiste en una envoltura de lámina o una cubierta de trenza de cobre.<br/>STP requiere una conexión a tierra, por lo que resulta mas costoso, pero su blinjae ofrece mayor resistencia a interferencias electromagnéticas y mejor rendimiento en aplicaciones con uso intenso de diafonía. Se utiliza en redes de gran ancho de banda como estaciones de radio y aeropueros.<br/>Las ventajas son muchas con respecto al UTP, pero su instalación es más compleja y el mantenimiento más costoso."
+    },
+    {
+        "key":"3",
+        "tipo":"FTP (Foil Twisted Pair)",
+        "img":"redes2-cable-ftp.webp",
+        "desc":"También llamado F/UTP. Está blindado con una lámina de aluminio alrededor de los pares para protejerlo de interferencias y diafonía. Comparado con el UTP, este cable tiene mayor ancho de banda y resistencia a las interferencias, pero es mas costoso y menos resistente a flexiones."
+    },
+    {
+        "key":"4",
+        "tipo":"SFTP (Shielded Foil Twisted Pair)",
+        "img":"redes2-cable-sftp.webp",
+        "desc":"Par trenzado de lámina blindado, viene doblemente blindado, con una capa adicional de malla trenzada sobre el STP. Se suele utilizar como malla trenzada de alambre de aluminio-magnesio. Sin embargo, también se utiliza como hilo de estaño o cobre estañado, lo que lo hace resistente a las interferencias y muy confidencial para proyectos de cableado profesional."
+    }
+]

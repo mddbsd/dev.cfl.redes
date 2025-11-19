@@ -1,0 +1,70 @@
+[
+    {
+        "cat":"Cat 1",
+        "adb":"1.4 MHz",
+        "vel":"1 Mbps",
+        "prop":"Cables telefónicos",
+        "blin":"Blindado"
+    },
+        {
+        "cat":"Cat 2",
+        "adb":"4 MHz",
+        "vel":"4 Mbps",
+        "prop":"Lineas de transmisión",
+        "blin":"Sin blindaje"
+    },    {
+        "cat":"Cat 3",
+        "adb":"16 MHz",
+        "vel":"10 Mbps",
+        "prop":"Redes Ethernet",
+        "blin":"Sin blindaje"
+    },    {
+        "cat":"Cat 4",
+        "adb":"16 MHz",
+        "vel":"16 Mbps",
+        "prop":"Redes Token Ring",
+        "blin":"Sin blindaje"
+    },    {
+        "cat":"Cat 5",
+        "adb":"100 MHz",
+        "vel":"100 Mbps",
+        "prop":"Redes Ethernet",
+        "blin":"Sin blindaje"
+    },    {
+        "cat":"Cat 5e",
+        "adb":"100 MHz",
+        "vel":"1 Gbps",
+        "prop":"Gigabit Ethernet",
+        "blin":"Sin blindaje"
+    },    {
+        "cat":"Cat 6",
+        "adb":"250 MHz",
+        "vel":"10 Gbps",
+        "prop":"Gigabit Ethernet",
+        "blin":"Con o sin blindaje"
+    },    {
+        "cat":"Cat 6a",
+        "adb":"500 MHz",
+        "vel":"10 Gbps",
+        "prop":"Gigabit Ethernet",
+        "blin":"Blindado"
+    },    {
+        "cat":"Cat 7",
+        "adb":"600 MHz",
+        "vel":"10 Gbps",
+        "prop":"Gigabit Ethernet",
+        "blin":"Blindado"
+    },    {
+        "cat":"Cat 7a",
+        "adb":"1 GHz",
+        "vel":"> 10 Gbps",
+        "prop":"Gigabit Ethernet",
+        "blin":"Blindado"
+    },    {
+        "cat":"Cat 8",
+        "adb":"2 GHz",
+        "vel":"10 Gbps",
+        "prop":"Datacenters",
+        "blin":"Blindado"
+    }
+]

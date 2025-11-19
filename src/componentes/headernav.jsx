@@ -17,7 +17,8 @@ export default function HeaderNav(){
      */
     const refNav = useRef(0);
     /**
-     * Esta funcion agrega o quita la clase nav_responsivo de la lista de clases del nav
+     * Esta funcion agrega o quita la clase max-[660px]:-translate-y-full de la lista de clases del nav.
+     * 
      * refNav: La variable creada con useRef para acceder al elemento nav
      * current: El objeto que devuelve useRef con la referencia al nav (current es el ingles para actual, osea el elemento actual)
      * classList: La propiedad que queremos cambiar, hay multiples propiedades que podemos utilizar, en este caso es la lista de clases (className)
