@@ -5,8 +5,8 @@ export default function Home(){
         <>
             <div className='bg-emerald-50 w-full flex flex-col items-center'>
                 <div className='w-2xl max-[660px]:w-full flex flex-col items-center'>
-                    <h2>Introducción a las redes domésticas</h2>
                     <img className="w-2xl sm:w-full" src="/intro-portada.jpg" />
+                    <h2>Introducción a las redes domésticas</h2>
                     <div className='text-justify [&_p]:max-[660px]:mx-2'>
                         <p>Las redes informáticas estan presentes en todos casi todos los aspectos de nuestra vida cotidiana, las encontramos en todos los hogares con un servicio de internet, en la calle con los servicios móbiles y haste en algunos elevtrodomésticos (<b>IoT</b>).</p>
                         <p>A finales de la decada del 60 se estableció la primera comunicación entre 2 ordenadores con la creacion de <b>ARPANET</b>, esta nueva manera de comunicación sirvio como base para lo que hoy conocemos como internet.<br/>Con el paso del tiempo y el avance tecnológico, las computadoras se volvieron cada vez más accesibles, por lo que fue necesario crear diferentes protocolos y medios de comunicación para facilitar la transmisión de datos.</p>

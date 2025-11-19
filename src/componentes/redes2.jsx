@@ -1,4 +1,7 @@
 import { useState } from 'react';
+
+import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
+
 import catEthernet from '../json/categoriasethernet.json'
 import tiposEthernet from '../json/tiposethernet.json'
 
@@ -117,7 +120,12 @@ export default function Redes2(){
             }
             
             return(
-                <div className="relative">
+                <div className="relative flex">
+                    <button
+                        className="p-2"
+                        onClick={fichaAnterior}>
+                        <SlArrowLeft />
+                    </button>
                     <div className="overflow-hidden">
                         {/*
                             De la misma manera que con la tabla, generamos las fichas de manera dinámica.
@@ -129,66 +137,45 @@ export default function Redes2(){
                         <div className="flex transition-transform duration-500"
                         style={{ transform: `translateX(-${indiceActual * 100}%)` }}>
                         {tiposEthernet.map((ficha, indice) => (
-                            <div key={indice} className=" shrink-0 w-full float">
-                            <h4>{ficha.tipo}</h4>
-                            <p><img src={ficha.img} className='float-left w-1/2 h-1/2'/>{ficha.desc}</p>
+                            <div key={indice} className="float max-[660px]:text-sm shrink-0 w-full">
+                                <h4>{ficha.tipo}</h4>
+                                <p><img src={ficha.img} className='float-left w-1/3 h-1/3 max-[660px]:w-1/5 max-[660px]:h-1/5'/>{ficha.desc}</p>
                             </div>
                         ))}
                         </div>
                     </div>
-                    {/* Los botones los saqué de internet, voy a cambiarlos porque no me gusta como quedan */}
+                    {/* Ahora me gustan mas los botones estos, pero sigo teniendo un problema con css. en viewports
+                        prqueños, algo produce un desbordamiento. Es un problema del componente CarruselEthernet
+                        
+                    */}
+                    
                     <button
-                        className="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-300 rounded-full p-2 hover:bg-gray-400 transition-colors duration-300"
-                        onClick={fichaAnterior}
-                    >
-                        <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M15 19l-7-7 7-7"
-                        />
-                        </svg>
-                    </button>
-                    <button
-                        className="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-300 rounded-full p-2 hover:bg-gray-400 transition-colors duration-300"
-                        onClick={fichaSiguiente}
-                    >
-                        <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                        />
-                        </svg>
+                        className="p-2"
+                        onClick={fichaSiguiente}>
+                        <SlArrowRight />
                     </button>
                     </div>
             )
     }
 
+    
+    const [redesCab, setRedesCab] = useState("Texto original");
+    function redesCableadas(){
+        setRedesCab("cambió el texto!") 
+    }
     return(
         <>
-            <div className='bg-emerald-50 w-full flex flex-col items-center'>
-                <div className='w-2xl max-[660px]:w-full flex flex-col items-center'>
-                    <h2>Medios de transmisión</h2>
-                    <img className="w-2xl sm:w-full" src="/redes2-portada.jpg" />
-                    <div className='text-justify [&_p]:max-[660px]:mx-2'>
+            <div id="contenedorprincipal "className='bg-emerald-50 w-full flex flex-col items-center'>
+                <div id="contenido" className='w-2xl max-[660px]:w-full flex flex-col items-center'>
+                    <div id="titulo">     
+                        <img className="w-2xl sm:w-full" src="/redes2-portada.jpg" />
+                        <h2>Medios de transmisión</h2>
+                    </div>
+                    
+                    <div id="seccion" className='text-justify [&_p]:max-[660px]:mx-2'>
                         <p>Podemos dividir lod medios de transmision en 2 grandes grupos: Cableado e inalambrico. Una red cableada transmite los bits en forma de señales eléctricas o pulsos de luz, mientras que las inalámbricas utilizan radiofrecuencias (tambien se pueden utilizar señales de luz infraroja, pero es tan lento que no se usa en redes amplias). Cada medio tiene sus ventajas y desventajas, pero se utilizan en conjunto dependiendo del diseño de la red.</p>
-                        <h2>Redes cableadas</h2>
-                        <p>Los medios cableados son principalmente 3: Coaxial, Fibra óptica y Par trenzado. Cada tipo de cable es estandarizado y se subdivide en diferentes categorías con diferentes características.En este curso vamos a cubrir en profundidad sólo el par trenzado ya que es el que es el que se utiliza en redes domésticas.</p>
+                        <h2><button type="button" onClick={redesCableadas}>Redes cableadas</button></h2>
+                        <p>Los medios cableados son principalmente 3: Coaxial, Fibra óptica y cable <a href="https://es.wikipedia.org/wiki/Ethernet"><b>Ethernet</b></a>. Cada tipo de cable es estandarizado y se subdivide en diferentes categorías con diferentes características. En este curso vamos a cubrir en profundidad sólo el par trenzado ya que es el que es el que se utiliza en redes domésticas y pequeñas empresas.</p>
                         <div className='text-justify [&_p]:max-[660px]:mx-2'>
                             <h3>Par trenzado / Cable Ethernet</h3>
                             <p>El par trenzado es el cable más frecuente en redes pequeñas y grandes. Está compuesto por pares de cables diferenciados con colores, y trenzados para evitar la interferencia que generan los cables adyacentes (<a href="https://es.wikipedia.org/wiki/Diafon%C3%ADa">diafonía</a>). Algunas categorías tienen un mallado que funciona como blindaje de interferencias externas.<br/>Actualmente está dividido en 8 categorías y 3 subcategorías (con el tiempo podrían agregarse más) con diferentes propositos</p>
@@ -196,6 +183,9 @@ export default function Redes2(){
                             <p>En redes informaticas se utilizan desde la categoria 5 en adelante, todas estas tienen 4 pares de cables trenzados. Estas estan divididas en 3 tipos de cable según su blindaje.</p>
                             <CarruselEthernet />
                         </div>
+                        <h2>Armado de cables</h2>
+                        <p>T568A:Blanco/verde, verde. Blanco/naranja, azul. Blanxo/Azul, verde. Blanco/marron Marron.  
+                           T568B:Blanco/Naranja, naranja. Blanco/Verde, Azul. Balanco/azul, Verde. Blanco/marron, Marron</p>
                     </div>
                 </div>
             </div>

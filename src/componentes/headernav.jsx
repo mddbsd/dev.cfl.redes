@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { FaBars, FaTimes } from "react-icons/fa" //esta dependencia es react-icons, tiene una serie de iconos en formato de fuente tipografica, mas faciles de manejar que iconos en formato imagen
+import { FaBars, FaTimes } from "react-icons/fa" //esta dependencia es react-icons, tiene una serie de iconos en formato de fuente tipografica, mas faciles de manejar que iconos en formato imagen. Como todo paquete, se instala con npm install react-icons. El argumento install se puede reducir, solamente cambiandolo por i
 export default function HeaderNav(){
     /*
         Para hacer una barra responsiva hay que definir primero la estructura de la barra.
