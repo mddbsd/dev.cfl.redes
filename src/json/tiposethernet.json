@@ -9,7 +9,7 @@
         "key":"2",
         "tipo":"STP (Shielded Twisted Pair)",
         "img":"redes2-cable-stp.webp",
-        "desc":"STP significa par trenzado blindado. A diferencia de los cables UTP, los cables STP están cubiertos con un material de blindaje o apantallamiento que consiste en una envoltura de lámina o una cubierta de trenza de cobre.<br/>STP requiere una conexión a tierra, por lo que resulta mas costoso, pero su blinjae ofrece mayor resistencia a interferencias electromagnéticas y mejor rendimiento en aplicaciones con uso intenso de diafonía. Se utiliza en redes de gran ancho de banda como estaciones de radio y aeropueros.<br/>Las ventajas son muchas con respecto al UTP, pero su instalación es más compleja y el mantenimiento más costoso."
+        "desc":"STP significa par trenzado blindado. A diferencia de los cables UTP, los cables STP están cubiertos con un material de blindaje o apantallamiento que consiste en una envoltura de lámina o una cubierta de trenza de cobre. STP requiere una conexión a tierra, por lo que resulta mas costoso, pero su blinjae ofrece mayor resistencia a interferencias electromagnéticas y mejor rendimiento en aplicaciones con uso intenso de diafonía. Se utiliza en redes de gran ancho de banda como estaciones de radio y aeropueros. Las ventajas son muchas con respecto al UTP, pero su instalación es más compleja y el mantenimiento más costoso."
     },
     {
         "key":"3",

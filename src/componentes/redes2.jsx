@@ -15,7 +15,7 @@ export default function Redes2(){
     */
     function TablaEthernet(){
         return(
-            <div className='max-[660px]:text-xs'>
+            <div id="comp-tabla-ethernet" className='max-[660px]:text-xs'>
                 <table className="w-full table-fixed max-[660px]:table-auto border border-collapse [&_th]:border [&_th]:border-blue-600 [&_td]:border [&_td]:border-blue-600">
                     <thead className='text-center'>
                         <tr>
@@ -118,15 +118,21 @@ export default function Redes2(){
             function fichaAnterior(){
                 setIndiceActual((indiceActual - 1 + cantidadFichas) % cantidadFichas);
             }
-            
             return(
-                <div className="relative flex">
-                    <button
-                        className="p-2"
-                        onClick={fichaAnterior}>
-                        <SlArrowLeft />
-                    </button>
-                    <div className="overflow-hidden">
+                <div id="comp-carrusel-ethernet" className="grid grid-cols-1">
+                    <div id="botonera" className='flex justify-center gap-10 w-full [&>button]:p-3 [&>button]:rounded [&>button]:bg-gray-300'>
+                        <button
+                            className=""
+                            onClick={fichaAnterior}>
+                            <SlArrowLeft />
+                        </button>
+                        <button
+                            className=""
+                            onClick={fichaSiguiente}>
+                            <SlArrowRight />
+                        </button>
+                    </div>
+                    <div className="overflow-hidden grow">
                         {/*
                             De la misma manera que con la tabla, generamos las fichas de manera dinámica.
                             la función translateX mueve el componente hacia los lados en determinado porcentaje
@@ -137,23 +143,19 @@ export default function Redes2(){
                         <div className="flex transition-transform duration-500"
                         style={{ transform: `translateX(-${indiceActual * 100}%)` }}>
                         {tiposEthernet.map((ficha, indice) => (
-                            <div key={indice} className="float max-[660px]:text-sm shrink-0 w-full">
+                            <article key={indice} className="float shrink-0 w-full">
                                 <h4>{ficha.tipo}</h4>
-                                <p><img src={ficha.img} className='float-left w-1/3 h-1/3 max-[660px]:w-1/5 max-[660px]:h-1/5'/>{ficha.desc}</p>
-                            </div>
+                                <p><img src={ficha.img} className='float-left w-1/3 h-1/3'/>{ficha.desc}</p>
+                            </article>
                         ))}
                         </div>
                     </div>
-                    {/* Ahora me gustan mas los botones estos, pero sigo teniendo un problema con css. en viewports
-                        prqueños, algo produce un desbordamiento. Es un problema del componente CarruselEthernet
-                        
+                    {/* El problema del overflow eran los botones en combinacion con la clase
+                        shrink-0 del carrusel, que evita que el contenido se achique. La clase es necesaria
+                        para utilizar el carrusel, asi que para solucionarlo movi los botones arriba en su
+                        propio div para acomodarlos como flex
                     */}
-                    
-                    <button
-                        className="p-2"
-                        onClick={fichaSiguiente}>
-                        <SlArrowRight />
-                    </button>
+                
                     </div>
             )
     }
@@ -182,6 +184,7 @@ export default function Redes2(){
                             <TablaEthernet />
                             <p>En redes informaticas se utilizan desde la categoria 5 en adelante, todas estas tienen 4 pares de cables trenzados. Estas estan divididas en 3 tipos de cable según su blindaje.</p>
                             <CarruselEthernet />
+                            
                         </div>
                         <h2>Armado de cables</h2>
                         <p>T568A:Blanco/verde, verde. Blanco/naranja, azul. Blanxo/Azul, verde. Blanco/marron Marron.  

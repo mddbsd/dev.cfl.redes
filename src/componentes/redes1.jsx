@@ -4,14 +4,15 @@ export default function Redes1(){
     
     return(
         <>
-            <div className='bg-emerald-50 w-full flex flex-col items-center'>
-                <div className='w-2xl max-[660px]:w-full flex flex-col items-center'>
-                    <h2>Comunicación entre dispositivos</h2>
-                    <img className="w-2xl sm:w-full" src="/redes1-portada.png" />
-                    <div className='text-justify [&_p]:max-[660px]:mx-2'>
+            <div id="contenedorprincipal" className='bg-emerald-50 w-full flex flex-col items-center'>
+                <div id="contenido" className='w-2xl max-[660px]:w-full flex flex-col items-center'>
+                    <div id="titulo">
+                        <img className="w-2xl sm:w-full" src="/redes1-portada.png" />
+                        <h2>Comunicación entre dispositivos</h2>
+                    </div>
+                    <div id="seccion-equipos" className='text-justify [&_p]:max-[660px]:mx-2'>
                         <p>Las computadoras tienen un gran poder de procesamiento, pero por si solas son ciegas, no tienen manera de comunicarse con el exterior. Para establecer un enlace se necesitan dispositivos especificamente diseñados para enviar y recibir la información.<br/>Existe una gran variedad de dispositivos, vamos a enumerar los más importantes.</p>
                         <div className="float">
-                            
                             <div className="flex flex-col">
                                 <h3>Adaptador de red (NIC)</h3>
                                 <p><img className="float-left w-1/3 h-1/3" src="/redes1-nic.jpeg" />Esta pieza de hardware es la encargada de establecer las comunicaciones (puede ser cableado o inalámbrico). Envia y recibe cadenas de bits a travez de un medio físico.<br/>Podemos conectar 2 computadoras directamente con los NICs, esto es lo que se llama una red punto a punto. Tienen que ser configurados en el sistema operativo</p>
