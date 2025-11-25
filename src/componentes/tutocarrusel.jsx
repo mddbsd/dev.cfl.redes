@@ -25,8 +25,29 @@ export default function TutoCarrusel(){
         console.log(controlGrid)
     }
 
+    /*
+        Template Literals
 
-
+        Ya sabemos que en JS las cadenas de caracteres se representan con comillas dobles o simples, pero aca
+        se utiliza, tildes invertidas. Estas se llaman plantillas de cadenas de texto, o template literals.
+        Ofrecen ciertas caracteristicas diferentes a las cadenas tradicionales.
+            - Cadena multilinea: Se pueden utilizar multiples lineas para definir el la cadena.
+            - Paso de variables: Se pueden pasar variables facilmente utilizando ${variable}
+        
+        ejemplo:
+            Cadena tradicional: Hay que concatenar los valores de las variables con las cadenas.
+                const nombre = "Lionel Messi";
+                const saldo = 200;
+                console.log("Bienvenido " + nombre + ". Su saldo actual es: " + saldo + "$");
+            
+            Plantilla de cadeanas: podemos pasar la variable directamente a la cadena.
+                const nombre = "Lionel Messi":
+                const saldo = 200;
+                console.log(`Bienvenido ${nombre}. Su saldo actual es: ${saldo}$`);
+        
+        Las cadenas de esta funcion se utilizan en el componente SyntaxHighlighter del paquete react-syntax-highlighter"
+        para renderizar codigo fuente.
+    */
     const paso1 = `function Carrusel(){
       return(
       <div id='envolturaprincipal' className='flex'>
@@ -59,7 +80,6 @@ export default function TutoCarrusel(){
             </div>
         )
     }`
-    const valorTranslateString = "${indiceActual * 100}%)";
 
     const paso3 = `function Carrusel(){
         const [indiceActual, setIndiceActual] = useState(0);
@@ -91,6 +111,8 @@ export default function TutoCarrusel(){
         )
     }`
 
+    const paso4 =  `<div id="elementoscarrusel" className="flex transition-transform duration-500"`
+
     function CarruselPaso1(){
         return(
             <div id='envolturaprincipal' className={controlGrid ? 'grid grid-cols-1 justify-items-center' : ""}>
@@ -107,7 +129,7 @@ export default function TutoCarrusel(){
 
     function CarruselPaso2(){
         return(
-            <div id='envolturaprincipal' className='grid grid-cols-1 justify-items-center'>
+            <div id='envolturaprincipal' className='grid grid-cols-1 justify-items-center w-1/2'>
                 <div id='botonera' className="flex justify-center gap-10">
                     <button className="bg-red-500 text-white rounded border border-amber-300">sig</button>
                     <button className="bg-red-500 text-white rounded border border-amber-300">ant</button>
@@ -143,7 +165,36 @@ export default function TutoCarrusel(){
                     <button className="bg-gray-300 text-1xl p-2 rounded-full" onClick={botonDerecha}><SlArrowRight /></button>
                 </div>
                 <div id='contenidocarrusel' className="grow overflow-hidden" >
-                    <div id="elementoscarrusel" className="flex" style={{ transform: `translateX(-${indiceActual * 100}%)` }}>
+                    <div id="elementoscarrusel" className="flex " style={{ transform: `translateX(-${indiceActual * 100}%)` }}>
+                        <img className="shrink-0 w-full" src="https://placehold.co/600x400" alt="placeholder1" /> 
+                        <img className="shrink-0 w-full" src="https://placehold.co/600x400/orange/white" alt="placeholder2" /> 
+                        <img className="shrink-0 w-full" src="https://placehold.co/600x400/red/white" alt="placeholder3" /> 
+                        <img className="shrink-0 w-full" src="https://placehold.co/600x400/yellow/black" alt="placeholder4" /> 
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    function CarruselPaso4(){
+        const [indiceActual, setIndiceActual] = useState(0);
+        const cantidadElementos = 4;
+
+        const botonDerecha = () => {
+            setIndiceActual((indiceActual + 1) % cantidadElementos);
+        }
+
+        const botonIzquierda = () => {
+            setIndiceActual((indiceActual - 1 + cantidadElementos) % cantidadElementos);
+        }
+        return(
+            <div id='envolturaprincipal' className='grid grid-cols-1 justify-items-center w-1/2'>
+                <div id='botonera' className="flex justify-center gap-10">
+                    <button className="bg-gray-300 text-1xl p-2 rounded-full" onClick={botonIzquierda}><SlArrowLeft /></button>
+                    <button className="bg-gray-300 text-1xl p-2 rounded-full" onClick={botonDerecha}><SlArrowRight /></button>
+                </div>
+                <div id='contenidocarrusel' className="grow overflow-hidden" >
+                    <div id="elementoscarrusel" className="flex transition-transform duration-500" style={{ transform: `translateX(-${indiceActual * 100}%)` }}>
                         <img className="shrink-0 w-full" src="https://placehold.co/600x400" alt="placeholder1" /> 
                         <img className="shrink-0 w-full" src="https://placehold.co/600x400/orange/white" alt="placeholder2" /> 
                         <img className="shrink-0 w-full" src="https://placehold.co/600x400/red/white" alt="placeholder3" /> 
@@ -175,17 +226,13 @@ export default function TutoCarrusel(){
                     <label>Cambiando el gap se separan los elementos: gap: {controlGap}px</label><br/>
                     <input type="range" min="1" max="100" defaultValue={controlGap} onChange={(e) => setControlGap(e.target.value)} />
                 </div>
-                <div id="visualizador" className="border border-b-blue-800">
-                    <CarruselPaso1 />
-                </div>
-                <p>El contenedor principal tiene un display grid de una columna con justify-items-center para alinear todos los elementos del carrusel. Ahora preparamos el contenedor de imagenes.</p>
+                <CarruselPaso1 />
+                <p>El contenedor principal tiene un display grid de una columna con justify-items-center para alinear todos los elementos del carrusel, podemos ajustar facilmente el tamaño con la clase w-. ahora lo configuré con w-2xl. Ahora preparamos el contenedor de imagenes.</p>
                 <SyntaxHighlighter children={paso2} language="javascript" style={sunburst} />
                 <p>El primer contenedor (contenidocarrusel) tiene la propiedad grow para que el elemento flex ocupe todo el espacio disponible y overflow-hidden para evitar que se vean los elementos desbordados</p>
                 <p>Elementoscarrusel contiene todos los elementos (en este caso imagenes) que queremos mostrar, este se desplazara en el eje x, el display es flex para que se posicionen uno al lado del otro, la idea es posicionar los elementos en fila e ir desplazandolos hacia los lados con los botones. transition-transform y duration-500 establecen el comportamiento cuando se desplazan y la duracion de la animación.</p>
                 <p>Cada uno de los elementos de elementoscarrusel tiene 2 propiedades shrink-0 para evitar que se achique el item y w-full para que ocupe todo el ancho, de esta manera, todos los items se posicionan horizontalmente y quedan ocultos fuera de su contenedor.</p>
-                <div id="visualizador" className="border border-b-blue-800">
-                    <CarruselPaso2 />
-                </div>
+                <CarruselPaso2 />
                 <div id="control-visualizador">
                     <label>Prueben mover el slider para ver como se deslizan los elementos</label><br/>
                     <input type="range" min="1" max="300" defaultValue={controltranslate} onChange={(e) => setControlTranslate(e.target.value)} />
@@ -193,9 +240,13 @@ export default function TutoCarrusel(){
                 <p>Ahora un poco de JavaScript, tenemos que configurar los botones para que muevan el valor del translate desde 0% hasta el 300%. Cada elemento del carrusel, al tener la propiedad grow heredada de su elemento padre, ocupa el 100% del espacio disponible, por ende, el primer elemento ocupa el 0%, el segundo el 100%, el tercero el 200% y asi por cada uno.</p>
                 <SyntaxHighlighter children={paso3} language="javascript" style={sunburst} />
                 <CarruselPaso3 />
+                <p>Listo! con esto ya tenemos las clases y las funciones configuradas para el carrusel de imagenes. Ahora solo quedaría darle un poco más de movimiento.</p>
+                <p>Con la clase transition-transofrom en el contenedor de imagenes, establecemos la animacion de transicion al transformarse (literalmente lo que dice la clase), y duration- establece la duración de la transicion en milisegundos</p>
+                <SyntaxHighlighter children={paso4} language="javascript" style={sunburst} />
+                <CarruselPaso4 />
+                
             </div>
         </div>
-        <div></div>
     </section>
     )
 }
