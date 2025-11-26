@@ -161,13 +161,11 @@ export default function Redes2(){
     }
 
     
-    const [redesCab, setRedesCab] = useState("Texto original");
-    function redesCableadas(){
-        setRedesCab("cambió el texto!") 
-    }
+    const [indiceRed, setIndiceRed] = useState(0);
+ 
     return(
         <>
-            <div id="contenedorprincipal "className='bg-emerald-50 w-full flex flex-col items-center'>
+            <div id="contenedorprincipal "className='bg-emerald-50 w-full flex flex-col items-center [&_a]:text-underline [&_a]:text-blue'>
                 <div id="contenido" className='w-2xl max-[660px]:w-full flex flex-col items-center'>
                     <div id="titulo">     
                         <img className="w-2xl sm:w-full" src="/redes2-portada.jpg" />
@@ -175,20 +173,39 @@ export default function Redes2(){
                     </div>
                     
                     <div id="seccion" className='text-justify [&_p]:max-[660px]:mx-2'>
-                        <p>Podemos dividir lod medios de transmision en 2 grandes grupos: Cableado e inalambrico. Una red cableada transmite los bits en forma de señales eléctricas o pulsos de luz, mientras que las inalámbricas utilizan radiofrecuencias (tambien se pueden utilizar señales de luz infraroja, pero es tan lento que no se usa en redes amplias). Cada medio tiene sus ventajas y desventajas, pero se utilizan en conjunto dependiendo del diseño de la red.</p>
-                        <h2><button type="button" onClick={redesCableadas}>Redes cableadas</button></h2>
-                        <p>Los medios cableados son principalmente 3: Coaxial, Fibra óptica y cable <a href="https://es.wikipedia.org/wiki/Ethernet"><b>Ethernet</b></a>. Cada tipo de cable es estandarizado y se subdivide en diferentes categorías con diferentes características. En este curso vamos a cubrir en profundidad sólo el par trenzado ya que es el que es el que se utiliza en redes domésticas y pequeñas empresas.</p>
-                        <div className='text-justify [&_p]:max-[660px]:mx-2'>
-                            <h3>Par trenzado / Cable Ethernet</h3>
-                            <p>El par trenzado es el cable más frecuente en redes pequeñas y grandes. Está compuesto por pares de cables diferenciados con colores, y trenzados para evitar la interferencia que generan los cables adyacentes (<a href="https://es.wikipedia.org/wiki/Diafon%C3%ADa">diafonía</a>). Algunas categorías tienen un mallado que funciona como blindaje de interferencias externas.<br/>Actualmente está dividido en 8 categorías y 3 subcategorías (con el tiempo podrían agregarse más) con diferentes propositos</p>
-                            <TablaEthernet />
-                            <p>En redes informaticas se utilizan desde la categoria 5 en adelante, todas estas tienen 4 pares de cables trenzados. Estas estan divididas en 3 tipos de cable según su blindaje.</p>
-                            <CarruselEthernet />
-                            
+                        <p>Podemos dividir los medios de transmision en 2 grandes grupos: Cableado e inalambrico. Una red cableada transmite los bits en forma de señales eléctricas o pulsos de luz, mientras que las inalámbricas utilizan radiofrecuencias (tambien se pueden utilizar señales de luz infraroja, pero es tan lento que no se usa en redes amplias). Cada medio tiene sus ventajas y desventajas, pero se utilizan en conjunto dependiendo del diseño de la red.</p>
+                        <div id="menuredes" className='flex gap-x-4'>
+                            <h2><button className="hover:translate-x-0.5" type="button" onClick={() => setIndiceRed(0)}>Redes cableadas</button></h2>
+                            <h2><button className="hover:translate-x-0.5" type="button" onClick={() => setIndiceRed(1)}>Redes inalámbricas</button></h2>
                         </div>
-                        <h2>Armado de cables</h2>
-                        <p>T568A:Blanco/verde, verde. Blanco/naranja, azul. Blanxo/Azul, verde. Blanco/marron Marron.  
-                           T568B:Blanco/Naranja, naranja. Blanco/Verde, Azul. Balanco/azul, Verde. Blanco/marron, Marron</p>
+                        <hr />
+                        <div className='overflow-hidden'>
+                            <div id="contenidoredes" className='flex' style={{ transform: `translateX(-${indiceRed * 100}%)` }} >
+                                <div id="cableadas" className='shrink-0 w-full'>
+                                    <p>Los medios cableados son principalmente 3: Coaxial, Fibra óptica y cable <a href="https://es.wikipedia.org/wiki/Ethernet"><b>Ethernet</b></a>. Cada tipo de cable es estandarizado y se subdivide en diferentes categorías con diferentes características. En este curso vamos a cubrir en profundidad sólo el par trenzado ya que es el que es el que se utiliza en redes domésticas y pequeñas empresas.</p>
+                                    <div className='text-justify [&_p]:max-[660px]:mx-2'>
+                                        <h3>Par trenzado / Cable Ethernet</h3>
+                                        <p>El par trenzado es el cable más frecuente en redes pequeñas y grandes. Está compuesto por pares de cables diferenciados con colores, y trenzados para evitar la interferencia que generan los cables adyacentes (<a href="https://es.wikipedia.org/wiki/Diafon%C3%ADa">diafonía</a>). Algunas categorías tienen un mallado que funciona como blindaje de interferencias externas.<br/>Actualmente está dividido en 8 categorías y 3 subcategorías (con el tiempo podrían agregarse más) con diferentes propositos</p>
+                                        <TablaEthernet />
+                                        <p>En redes informaticas se utilizan desde la categoria 5 en adelante, todas estas tienen 4 pares de cables trenzados. Estas estan divididas en 3 tipos de cable según su blindaje.</p>
+                                        <CarruselEthernet />                        
+                                    </div>
+                                    <h2>Armado de cables</h2>
+                                    <p>T568A:Blanco/verde, verde. Blanco/naranja, azul. Blanxo/Azul, verde. Blanco/marron Marron.  
+                                    T568B:Blanco/Naranja, naranja. Blanco/Verde, Azul. Balanco/azul, Verde. Blanco/marron, Marron</p>
+                                </div>
+                                <div id="wireless" className='shrink-0 w-full'>
+                                    <p>Las redes inalambricas, wireless en ingles, permiten la comunicación entre dispositivos a travéz del aire, normalmente utilizando radiofrecuencias. Hay una gran variedad de tecnologías RF para crear redes: Wifi, Bluethoot, GPRS, infrarojo, entre otros. Cada una utiliza diferentes bandas del <a href="https://es.wikipedia.org/wiki/Espectro_electromagn%C3%A9tico">espectro electromagnético</a> y su implenentación es definida por las dimensiones de la red.</p>
+                                    <p>La tecnología mas común en redes informaticas pequeñas y medianas es <a href="https://es.wikipedia.org/wiki/Wifi">WiFi</a>, que utiliza radiofrecuencias paraa establecer enlaces y esta gobernado por la normativa <a href="https://en.wikipedia.org/wiki/IEEE_802">IEEE 802</a></p>
+                                    <p>WiFi esta dividida en 2 bandas:</p>
+                                    <ul>
+                                        <li>2.4GHz: Son los estándares IEEE 802.11b, IEEE 802.11g e IEEE 802.11n, cuyo manejo es internacional y permite velocidades de 11 Mbit/s, 54 Mbit/s y 300 Mbit/s respectivamente. Es el tipo que cuenta con mayor interferencia, dado que la banda de 2,4 GHz es también empleada por bluetooth y otros sistemas inalámbricos.</li>
+                                        <li>5GHz: El tipo más moderno de conexiṕn WiFi, conocido como “WIFI 5” y que aplica el estándar IEEE 802.11ac. Se maneja en un canal completamente nuevo y aún libre de interferencias, por lo que, a pesar de ser una tecnología reciente y de tener la desventaja de un 10 % menos de distancia de alcance, se le considera sumamente conveniente dada su estabilidad y velocidad.</li>
+                                    </ul> 
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
