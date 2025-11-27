@@ -143,9 +143,9 @@ export default function Redes2(){
                         <div className="flex transition-transform duration-500"
                         style={{ transform: `translateX(-${indiceActual * 100}%)` }}>
                         {tiposEthernet.map((ficha, indice) => (
-                            <article key={indice} className="float shrink-0 w-full">
-                                <h4>{ficha.tipo}</h4>
-                                <p><img src={ficha.img} className='float-left w-1/3 h-1/3'/>{ficha.desc}</p>
+                            <article key={indice} className="float gap-1 shrink-0 w-full">
+                                <h4>{ficha.tipo} asd</h4>
+                                <p><img src={ficha.img} className='float-left mr-4 w-1/3 h-1/3'/>{ficha.desc}</p>
                             </article>
                         ))}
                         </div>
@@ -160,8 +160,64 @@ export default function Redes2(){
             )
     }
 
+    const [indiceRed, setIndiceRed] = useState(true);
     
-    const [indiceRed, setIndiceRed] = useState(0);
+    function Cableadas(){
+        return(
+            <div id="cableadas" className='shrink-0 w-full'>
+                                    <p>Los medios cableados son principalmente 3: Coaxial, Fibra óptica y cable <a href="https://es.wikipedia.org/wiki/Ethernet"><b>Ethernet</b></a>. Cada tipo de cable es estandarizado y se subdivide en diferentes categorías con diferentes características. En este curso vamos a cubrir en profundidad sólo el par trenzado ya que es el que es el que se utiliza en redes domésticas y pequeñas empresas.</p>
+                                    <div className='text-justify [&_p]:max-[660px]:mx-2'>
+                                        <h3>Par trenzado / Cable Ethernet</h3>
+                                        <p>El par trenzado es el cable más frecuente en redes pequeñas y grandes. Está compuesto por pares de cables diferenciados con colores, y trenzados para evitar la interferencia que generan los cables adyacentes (<a href="https://es.wikipedia.org/wiki/Diafon%C3%ADa">diafonía</a>). Algunas categorías tienen un mallado que funciona como blindaje de interferencias externas.<br/>Actualmente está dividido en 8 categorías y 3 subcategorías (con el tiempo podrían agregarse más) con diferentes propositos</p>
+                                        <TablaEthernet />
+                                        <p>En redes informaticas se utilizan desde la categoria 5 en adelante, todas estas tienen 4 pares de cables trenzados. Estas estan divididas en 3 tipos de cable según su blindaje.</p>
+                                        <CarruselEthernet />                        
+                                    </div>
+                                    <h2>Armado de cables</h2>
+                                    <p>El armado de cables es una habilidad muy subestimada pero esencial para cualquier técnico. Nos da la posibilidad de reparar pequeñas y medianas redes cableadas.<br/>Nos enfocamos en el armado de cables UTP cat 5, 5e, 6 y 6a. Vamos a necesitar las siguientes herramientas:</p>
+                                    <div className='flex flex-col gap-4 text-justify list-disc [&_img]:w-1/3 [&_img]:shrink-0 [&_p]:mr-4' >
+                                        <div className='flex gap-4'><img src='redes2-h-utp.jpg'/><p><b>Cable UTP:</b> La calidad importa. Podemos comprobar la calidad del cable al tacto, un buen cable debe mantener la forma y ofrecer cierta resistencia a doblarse, si la vaina del cable es muy debil, suele ser indicio de un cable de baja calidad</p></div>
+                                        <div className='flex gap-4'><img src='redes2-h-ficha.jpg'/><p><b>Ficha RJ45:</b> Hay diversos tipos de fichas RJ45 con diferentes metodos de armado, las mas comunes utilizadas para cable UTP solo cuentan con guias para los filamentos del cable y un tope. Algunas fichas pueden estar compuestas con las guias separadas de la ficha o fichas con multiples piezas que deben ser ensambladas.</p></div>
+                                        <div className='flex gap-4'><img src='redes2-h-crimpeadora.png'/><p><b>Crimpeadora:</b> La crimpeadora ajusta los conectores de la ficha en los filamentos del cable y presiona la baina para mantener la estabilidad.</p></div>
+                                        <div className='flex gap-4'><img src='redes2-h-tester.jpg'/><p><b>Tester de cable:</b> Esta es una herramienta opcional que nos permite ver si todos los filamentos estan en contacto. En caso de no contar con un tester, podemos probar el cable simplemente conectandolo a los dispositivos y verificando la conexión.</p></div>
+                                    </div>
+                                    <h2>Estandares</h2>
+                                    <p>Para armar correctamente los cables Ethernet, tenemos que seguir un estandar. Si bien un enlace funciona si hacemos conicidir los colores de los cables en ambos extremos del cable, seguir estos estandares es importante para mantener una buena arquitectura de red escalable y facil de diagnosticar. No solo eso, sino que facilita la tarea a futuros técnicos que eventualmente trabajen en la red.</p>
+                                    <p>Usamos 2 estandares para el armado de cables:</p>
+                                    <img src="redes2-t568.jpeg" />
+                                    <p>Con estos 2 modelos podemos armar 2 tipos de cables, par cruzado (crossover) y par simple (stright-thrught)</p>
+                                    <h3>Par simple</h3>
+                                    <p>El par simple tiene el mismo estandar en ambos extremos, se utiliza para conectar dispositivos de diferentes tipos</p>
+                                    <ul className='list-decimal'>
+                                        <li>PC a Switch</li>
+                                        <li>PC a Router</li>
+                                        <li>Router a Switch</li>
+                                        <li>Router a Server</li>
+                                    </ul>
+                                    <h3>Par Cruzado</h3>
+                                    <p>Cuando armamos el cable con 2 estandares diferentes creamos un cable crossover, sirve para conectar dispositivos del mismo tipo</p>
+                                    <ul className='list-disc'>
+                                        <li>PC a PC</li>
+                                        <li>Switch a Switch</li>
+                                        <li>Router a Router</li>
+                                    </ul>
+                                </div>
+        )
+    }
+    function Wireless(){
+        return(
+            <div id="wireless" className='shrink-0 w-full'>
+                                    <p>Las redes inalambricas, wireless en ingles, permiten la comunicación entre dispositivos a travéz del aire, normalmente utilizando radiofrecuencias. Hay una gran variedad de tecnologías RF para crear redes: Wifi, Bluethoot, GPRS, infrarojo, entre otros. Cada una utiliza diferentes bandas del <a href="https://es.wikipedia.org/wiki/Espectro_electromagn%C3%A9tico">espectro electromagnético</a> y su implenentación es definida por las dimensiones de la red.</p>
+                                    <p>La tecnología mas común en redes informaticas pequeñas y medianas es <a href="https://es.wikipedia.org/wiki/Wifi">WiFi</a>, que utiliza radiofrecuencias paraa establecer enlaces y esta gobernado por la normativa <a href="https://en.wikipedia.org/wiki/IEEE_802">IEEE 802</a></p>
+                                    <p>WiFi esta dividida en 2 bandas:</p>
+                                    <ul className='list-disc'>
+                                        <li>2.4GHz: Son los estándares IEEE 802.11b, IEEE 802.11g e IEEE 802.11n, cuyo manejo es internacional y permite velocidades de 11 Mbit/s, 54 Mbit/s y 300 Mbit/s respectivamente. Es el tipo que cuenta con mayor interferencia, dado que la banda de 2,4 GHz es también empleada por bluetooth y otros sistemas inalámbricos.</li>
+                                        <li>5GHz: El tipo más moderno de conexiṕn WiFi, conocido como “WIFI 5” y que aplica el estándar IEEE 802.11ac. Se maneja en un canal completamente nuevo y aún libre de interferencias, por lo que, a pesar de ser una tecnología reciente y de tener la desventaja de un 10 % menos de distancia de alcance, se le considera sumamente conveniente dada su estabilidad y velocidad.</li>
+                                    </ul> 
+                                </div>
+        )
+    }
+
  
     return(
         <>
@@ -175,36 +231,14 @@ export default function Redes2(){
                     <div id="seccion" className='text-justify [&_p]:max-[660px]:mx-2'>
                         <p>Podemos dividir los medios de transmision en 2 grandes grupos: Cableado e inalambrico. Una red cableada transmite los bits en forma de señales eléctricas o pulsos de luz, mientras que las inalámbricas utilizan radiofrecuencias (tambien se pueden utilizar señales de luz infraroja, pero es tan lento que no se usa en redes amplias). Cada medio tiene sus ventajas y desventajas, pero se utilizan en conjunto dependiendo del diseño de la red.</p>
                         <div id="menuredes" className='flex gap-x-4'>
-                            <h2><button className="hover:translate-x-0.5" type="button" onClick={() => setIndiceRed(0)}>Redes cableadas</button></h2>
-                            <h2><button className="hover:translate-x-0.5" type="button" onClick={() => setIndiceRed(1)}>Redes inalámbricas</button></h2>
+                            <h2><button className="hover:translate-x-0.5" type="button" onClick={() => setIndiceRed(true)}>Redes cableadas</button></h2>
+                            <h2><button className="hover:translate-x-0.5" type="button" onClick={() => setIndiceRed(false)}>Redes inalámbricas</button></h2>
                         </div>
                         <hr />
                         <div className='overflow-hidden'>
-                            <div id="contenidoredes" className='flex' style={{ transform: `translateX(-${indiceRed * 100}%)` }} >
-                                <div id="cableadas" className='shrink-0 w-full'>
-                                    <p>Los medios cableados son principalmente 3: Coaxial, Fibra óptica y cable <a href="https://es.wikipedia.org/wiki/Ethernet"><b>Ethernet</b></a>. Cada tipo de cable es estandarizado y se subdivide en diferentes categorías con diferentes características. En este curso vamos a cubrir en profundidad sólo el par trenzado ya que es el que es el que se utiliza en redes domésticas y pequeñas empresas.</p>
-                                    <div className='text-justify [&_p]:max-[660px]:mx-2'>
-                                        <h3>Par trenzado / Cable Ethernet</h3>
-                                        <p>El par trenzado es el cable más frecuente en redes pequeñas y grandes. Está compuesto por pares de cables diferenciados con colores, y trenzados para evitar la interferencia que generan los cables adyacentes (<a href="https://es.wikipedia.org/wiki/Diafon%C3%ADa">diafonía</a>). Algunas categorías tienen un mallado que funciona como blindaje de interferencias externas.<br/>Actualmente está dividido en 8 categorías y 3 subcategorías (con el tiempo podrían agregarse más) con diferentes propositos</p>
-                                        <TablaEthernet />
-                                        <p>En redes informaticas se utilizan desde la categoria 5 en adelante, todas estas tienen 4 pares de cables trenzados. Estas estan divididas en 3 tipos de cable según su blindaje.</p>
-                                        <CarruselEthernet />                        
-                                    </div>
-                                    <h2>Armado de cables</h2>
-                                    <p>T568A:Blanco/verde, verde. Blanco/naranja, azul. Blanxo/Azul, verde. Blanco/marron Marron.  
-                                    T568B:Blanco/Naranja, naranja. Blanco/Verde, Azul. Balanco/azul, Verde. Blanco/marron, Marron</p>
-                                </div>
-                                <div id="wireless" className='shrink-0 w-full'>
-                                    <p>Las redes inalambricas, wireless en ingles, permiten la comunicación entre dispositivos a travéz del aire, normalmente utilizando radiofrecuencias. Hay una gran variedad de tecnologías RF para crear redes: Wifi, Bluethoot, GPRS, infrarojo, entre otros. Cada una utiliza diferentes bandas del <a href="https://es.wikipedia.org/wiki/Espectro_electromagn%C3%A9tico">espectro electromagnético</a> y su implenentación es definida por las dimensiones de la red.</p>
-                                    <p>La tecnología mas común en redes informaticas pequeñas y medianas es <a href="https://es.wikipedia.org/wiki/Wifi">WiFi</a>, que utiliza radiofrecuencias paraa establecer enlaces y esta gobernado por la normativa <a href="https://en.wikipedia.org/wiki/IEEE_802">IEEE 802</a></p>
-                                    <p>WiFi esta dividida en 2 bandas:</p>
-                                    <ul>
-                                        <li>2.4GHz: Son los estándares IEEE 802.11b, IEEE 802.11g e IEEE 802.11n, cuyo manejo es internacional y permite velocidades de 11 Mbit/s, 54 Mbit/s y 300 Mbit/s respectivamente. Es el tipo que cuenta con mayor interferencia, dado que la banda de 2,4 GHz es también empleada por bluetooth y otros sistemas inalámbricos.</li>
-                                        <li>5GHz: El tipo más moderno de conexiṕn WiFi, conocido como “WIFI 5” y que aplica el estándar IEEE 802.11ac. Se maneja en un canal completamente nuevo y aún libre de interferencias, por lo que, a pesar de ser una tecnología reciente y de tener la desventaja de un 10 % menos de distancia de alcance, se le considera sumamente conveniente dada su estabilidad y velocidad.</li>
-                                    </ul> 
-                                </div>
+                            <div id="contenidoredes" className='flex' >
+                                {indiceRed ? <Cableadas /> : <Wireless />}
                             </div>
-
                         </div>
                     </div>
                 </div>
